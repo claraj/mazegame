@@ -98,9 +98,13 @@ function readLevel(level) {
 
 			var cell = line[x];   // One character e.g. '#' or '*' or '@'
 
-			// If it's a player, don't make a cell - instead, set the global playerX and playerY
+			// If it's a player, don't make a cell for the player- instead, set the global playerX and playerY
+			// and create an empty cell under where the player is.
 			if (cell == PLAYER) {
 				playerX = x; playerY = y;
+
+				var cell = {type: EMPTY, x: x, y: y}
+				cells.push(cell);
 			}
 
 			else {
